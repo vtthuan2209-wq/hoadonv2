@@ -171,7 +171,7 @@ function resetInvoice() {
   setupGiaInputEvents();
   document.getElementById('shipping-fee').value = 0;
   document.getElementById('deposit').value = 0;
-  document.getElementById('writer-name').value = 'Thiên';
+  document.getElementById('writer-sign').textContent = "Thiên";
 
   // Reset ngày tháng năm
   const now = new Date();
