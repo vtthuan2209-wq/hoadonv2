@@ -1,3 +1,5 @@
+/* ... (các phần khác giữ nguyên) ... */
+
 .footer-invoice-2lines {
   margin-top: 14px;
   margin-bottom: 6px;
@@ -16,11 +18,34 @@
   margin-bottom: 3px;
 }
 .ngay-thang-nam-2line .chun {
-  font-weight: 400;         /* Không in đậm */
+  font-weight: 400;
   font-size: 1.08em;
-  text-transform: uppercase; /* Chỉ viết hoa */
+  text-transform: uppercase;
   font-family: inherit;
 }
+.ngay-thang-nam-2line input[type="number"] {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1em;
+  width: 30px;
+  text-align: center;
+  padding: 0 2px;
+  margin: 0 2px;
+  box-sizing: border-box;
+}
+.ngay-thang-nam-2line input[type="number"]::-webkit-inner-spin-button,
+.ngay-thang-nam-2line input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.ngay-thang-nam-2line input[type="number"]::-ms-input-placeholder,
+.ngay-thang-nam-2line input[type="number"]::placeholder {
+  color: #aaa;
+  opacity: 1;
+}
+
 .nguoi-viet-hoadon-2line {
   text-align: left;
   font-size: 1em;
@@ -31,3 +56,5 @@
   font-weight: 500;
   font-family: inherit;
 }
+
+/* ... (các phần khác giữ nguyên) ... */
