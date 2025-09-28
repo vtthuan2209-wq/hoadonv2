@@ -15,6 +15,12 @@
   font-weight: 400;
   margin-bottom: 3px;
 }
+.ngay-thang-nam-2line .chun {
+  font-weight: 400;         /* Không in đậm */
+  font-size: 1.08em;
+  text-transform: uppercase; /* Chỉ viết hoa */
+  font-family: inherit;
+}
 .nguoi-viet-hoadon-2line {
   text-align: left;
   font-size: 1em;
@@ -25,5 +31,3 @@
   font-weight: 500;
   font-family: inherit;
 }
-
-/* Giữ lại các CSS khác như trước cho .container, .logo img, .company-info... */
