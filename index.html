@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <!-- Phần 2 -->
+    <!-- Phần 2: Thông tin khách hàng -->
     <div class="title">
       <h1>HÓA ĐƠN</h1>
       <div class="customer-info">
@@ -89,12 +89,13 @@
       </table>
     </div>
 
-    <!-- Ngày tháng năm và người viết hoá đơn -->
+    <!-- Ngày tháng năm và người viết hóa đơn -->
     <div class="footer-invoice-2lines">
       <div class="ngay-thang-nam-2line" id="ngay-thang-nam-2line">
-        Ngày <input type="number" min="1" max="31" class="ngay-number" id="invoice-day" style="width:32px;text-align:center;" maxlength="2" placeholder="dd">
-        tháng <input type="number" min="1" max="12" class="thang-number" id="invoice-month" style="width:32px;text-align:center;" maxlength="2" placeholder="mm">
-        năm <input type="number" min="2000" max="2100" class="nam-number" id="invoice-year" style="width:48px;text-align:center;" maxlength="4" placeholder="yyyy">
+        <span class="chun">N</span>gày 
+        <input type="number" min="1" max="31" class="ngay-number" id="invoice-day" maxlength="2" placeholder="dd">
+        tháng <input type="number" min="1" max="12" class="thang-number" id="invoice-month" maxlength="2" placeholder="mm">
+        năm <input type="number" min="2000" max="2100" class="nam-number" id="invoice-year" maxlength="4" placeholder="yyyy">
       </div>
       <div class="nguoi-viet-hoadon-2line">
         Người viết hóa đơn: <span id="writer-sign">Thiên</span>
@@ -119,7 +120,6 @@
       <button onclick="resetInvoice()">Xoá hoá đơn</button>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>
