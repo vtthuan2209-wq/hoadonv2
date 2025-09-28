@@ -17,7 +17,7 @@ body {
 .container {
   max-width: 425px;
   margin: 0 auto;
-  padding: 18px 14px 36px 14px; /* giảm mỗi bên 2px */
+  padding: 8px 4px 26px 4px; /* giảm padding sát mép màn hình hơn */
   box-sizing: border-box;
   background: #fff;
 }
@@ -34,7 +34,7 @@ body {
   max-height: 70px;
   border-radius: 7px;
   background: #fff;
-  /* border: 1px solid var(--border);  -- bỏ viền */
+  border: none; /* Bỏ hoàn toàn viền logo */
 }
 
 .company-info {
@@ -337,7 +337,7 @@ body {
 }
 
 @media (max-width: 430px) {
-  .container { padding: 10px 6vw 21px 6vw;}
+  .container { padding: 4px 2vw 13px 2vw;}
   .customer-info-row label { min-width: 66px; }
   #cost-table input[type="number"], #cost-table input[type="text"] { width: 100%; }
   .footer-invoice { flex-direction: column; align-items: flex-start; gap: 4px;}
