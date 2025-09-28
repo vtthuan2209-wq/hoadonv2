@@ -147,27 +147,20 @@ body {
   color: #111;
   background: #fff;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 #product-table th {
   font-size: 1em;
   font-weight: 600;
   text-align: center;
-}
-
-#product-table th,
-#product-table td {
-}
-#product-table th:last-child,
-#product-table td:last-child {
-  width: 28%;
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 #product-table input {
-  width: 98%;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   border: none;
   background: transparent;
   font-size: 1em;
@@ -177,23 +170,21 @@ body {
   box-shadow: none;
   appearance: none;
   padding: 2px 0;
+  box-sizing: border-box;
 }
 
 .input-name {
   text-align: left;
-  width: 99%;
 }
 
 .input-stt, .input-sl {
   text-align: center;
-  width: 40px;
 }
 
 .input-gia {
   text-align: right !important;
   font-variant-numeric: tabular-nums;
   font-family: 'Segoe UI', Arial, sans-serif;
-  width: 99%;
   direction: ltr;
 }
 
@@ -223,6 +214,7 @@ body {
   font-variant-numeric: tabular-nums;
   font-family: 'Segoe UI', Arial, sans-serif;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 #cost-table td:first-child {
@@ -241,6 +233,8 @@ body {
 #cost-table input[type="number"], 
 #cost-table input[type="text"] {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   font-size: 1em;
   text-align: right !important;
   font-variant-numeric: tabular-nums;
@@ -252,11 +246,7 @@ body {
   box-shadow: none;
   appearance: none;
   padding: 2px 0;
-}
-
-#cost-table input[readonly] {
-  background: #fff;
-  color: #222;
+  box-sizing: border-box;
 }
 
 /* Ngày tháng năm và người viết hóa đơn dưới bảng */
@@ -352,6 +342,6 @@ body {
 @media (max-width: 430px) {
   .container { padding: 4px 2vw 13px 2vw;}
   .customer-info-row label { min-width: 66px; }
-  #cost-table input[type="number"], #cost-table input[type="text"] { width: 100%; }
+  #cost-table input[type="number"], #cost-table input[type="text"], #product-table input { width: 100%; min-width: 0; max-width: 100%; }
   .footer-invoice-2lines { gap: 2px;}
 }
