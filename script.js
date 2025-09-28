@@ -1,5 +1,6 @@
 // Helper: format number as VND
 function formatVND(num) {
+  if(isNaN(num)) return "";
   return num.toLocaleString('vi-VN');
 }
 
@@ -8,6 +9,8 @@ window.onload = function() {
   const today = new Date().toISOString().slice(0, 10);
   document.getElementById('invoice-date').value = today;
   updateTotals();
+  setupGiaInputEvents();
+  setupMoneyInputEvents();
 };
 
 // Thêm sản phẩm
@@ -19,9 +22,10 @@ function addProductRow() {
     <td><input type="number" min="1" max="999" value="${rowCount + 1}" class="input-stt"></td>
     <td><input type="text" class="input-name" placeholder="Tên sản phẩm"></td>
     <td><input type="number" min="1" max="999" value="1" class="input-sl"></td>
-    <td><input type="number" min="0" max="99999999999" value="0" class="input-gia"></td>
+    <td><input type="text" inputmode="numeric" pattern="[0-9.]*" maxlength="13" value="0" class="input-gia"></td>
   `;
   setRowEvents(row);
+  setupGiaInputEvents(row);
 }
 
 // Xoá sản phẩm dòng cuối
@@ -40,8 +44,63 @@ function setRowEvents(row) {
   });
 }
 Array.from(document.getElementById('product-tbody').rows).forEach(setRowEvents);
-document.getElementById('shipping-fee').addEventListener('input', updateTotals);
 document.getElementById('deposit').addEventListener('input', updateTotals);
+
+// Format giá tiền tự động dấu chấm hàng nghìn, chặn tối đa 10 số thực
+function setupGiaInputEvents(scope) {
+  let rows;
+  if (scope) {
+    rows = [scope];
+  } else {
+    rows = document.querySelectorAll('#product-tbody tr');
+  }
+  rows.forEach(row => {
+    const giaInput = row.querySelector('.input-gia');
+    if (giaInput) {
+      giaInput.addEventListener('input', function(e) {
+        let val = giaInput.value.replace(/[^\d]/g, '');
+        if(val.length > 10) val = val.slice(0,10); // chỉ 10 số
+        if(val === "") val = "0";
+        giaInput.value = formatVND(Number(val));
+        updateTotals();
+      });
+      giaInput.addEventListener('focus', function() {
+        giaInput.value = giaInput.value.replace(/[^\d]/g, '');
+        if(giaInput.value === "") giaInput.value = "0";
+      });
+      giaInput.addEventListener('blur', function() {
+        let val = giaInput.value.replace(/[^\d]/g, '');
+        if(val === "") val = "0";
+        giaInput.value = formatVND(Number(val));
+      });
+    }
+  });
+}
+setupGiaInputEvents();
+
+// Format các ô tiền khác (vận chuyển, cọc trước) tự động dấu chấm hàng nghìn
+function setupMoneyInputEvents() {
+  const moneyInputs = document.querySelectorAll('.input-money');
+  moneyInputs.forEach(input => {
+    input.addEventListener('input', function() {
+      let val = input.value.replace(/[^\d]/g, '');
+      if(val.length > 10) val = val.slice(0,10);
+      if(val === "") val = "0";
+      input.value = formatVND(Number(val));
+      updateTotals();
+    });
+    input.addEventListener('focus', function() {
+      input.value = input.value.replace(/[^\d]/g, '');
+      if(input.value === "") input.value = "0";
+    });
+    input.addEventListener('blur', function() {
+      let val = input.value.replace(/[^\d]/g, '');
+      if(val === "") val = "0";
+      input.value = formatVND(Number(val));
+    });
+  });
+}
+setupMoneyInputEvents();
 
 // Tính tổng tiền
 function updateTotals() {
@@ -49,11 +108,12 @@ function updateTotals() {
   const rows = document.querySelectorAll('#product-tbody tr');
   rows.forEach(row => {
     const sl = parseInt(row.querySelector('.input-sl').value) || 0;
-    const gia = parseInt(row.querySelector('.input-gia').value) || 0;
+    const giaStr = row.querySelector('.input-gia').value.replace(/[^\d]/g, '');
+    const gia = parseInt(giaStr) || 0;
     total += sl * gia;
   });
-  const shipping = parseInt(document.getElementById('shipping-fee').value) || 0;
-  const deposit = parseInt(document.getElementById('deposit').value) || 0;
+  const shipping = parseInt((document.getElementById('shipping-fee').value+"").replace(/[^\d]/g, '')) || 0;
+  const deposit = parseInt((document.getElementById('deposit').value+"").replace(/[^\d]/g, '')) || 0;
   document.getElementById('total-fee').value = formatVND(total + shipping);
   document.getElementById('final-payment').value = formatVND(Math.max(0, total + shipping - deposit));
 }
@@ -101,10 +161,12 @@ function resetInvoice() {
   firstRow.querySelector('.input-stt').value = 1;
   firstRow.querySelector('.input-name').value = '';
   firstRow.querySelector('.input-sl').value = 1;
-  firstRow.querySelector('.input-gia').value = 0;
+  firstRow.querySelector('.input-gia').value = '0';
+  setupGiaInputEvents();
   document.getElementById('shipping-fee').value = 0;
   document.getElementById('deposit').value = 0;
   document.getElementById('writer-name').value = 'Thiên';
   document.getElementById('invoice-date').value = new Date().toISOString().slice(0,10);
+  setupMoneyInputEvents();
   updateTotals();
 }
