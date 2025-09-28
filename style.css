@@ -272,8 +272,10 @@ body {
   flex: 1;
   text-align: left;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  align-items: flex-start;
   font-size: 1em;
+  gap: 5px;
 }
 
 .ngay-thang-nam {
@@ -281,38 +283,26 @@ body {
   align-items: center;
   gap: 2px;
   font-size: 1em;
+  font-family: inherit;
+  font-weight: 400;
 }
 .chun {
   font-weight: bold;
   font-size: 1.08em;
   text-transform: uppercase;
+  font-family: inherit;
 }
 
-.writer-section {
-  flex: 1;
-  text-align: right;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.writer-label {
-  font-weight: 500;
+.nguoi-viet-hoadon {
+  margin-top: 8px;
   font-size: 1em;
-  color: #111;
-  margin-bottom: 10px;
-  text-align: right;
-  width: 100%;
+  font-family: inherit;
+  text-align: left;
 }
 
-.writer-sign {
-  text-align: center;
-  width: 100%;
-  font-size: 1em;
-  margin-top: 2px;
+#writer-sign {
   font-weight: 500;
-  color: #111;
-  letter-spacing: 2px;
+  font-family: inherit;
 }
 
 .bank-info {
@@ -356,5 +346,4 @@ body {
   #cost-table input[type="number"], #cost-table input[type="text"] { width: 100%; }
   .footer-invoice { flex-direction: column; align-items: flex-start; gap: 4px;}
   .date-section, .writer-section { text-align: left; width: 100%;}
-  .writer-section { align-items: flex-start; }
 }
