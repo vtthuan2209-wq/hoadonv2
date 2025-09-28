@@ -92,18 +92,17 @@
     <!-- Phần 5: Ngày tháng năm & Người viết HĐ -->
     <div class="footer-invoice">
       <div class="date-section">
-        <span class="ngay-thang-nam">
+        <div class="ngay-thang-nam">
           <span class="chun">N</span>gày 
           <input type="number" min="1" max="31" class="ngay-number" id="invoice-day" style="width:32px;text-align:center;" maxlength="2" placeholder="dd">
           tháng
           <input type="number" min="1" max="12" class="thang-number" id="invoice-month" style="width:32px;text-align:center;" maxlength="2" placeholder="mm">
           năm
           <input type="number" min="2000" max="2100" class="nam-number" id="invoice-year" style="width:48px;text-align:center;" maxlength="4" placeholder="yyyy">
-        </span>
-      </div>
-      <div class="writer-section">
-        <div class="writer-label">Người viết HĐ</div>
-        <div class="writer-sign" id="writer-sign">Thiên</div>
+        </div>
+        <div class="nguoi-viet-hoadon">
+          Người viết hóa đơn: <span id="writer-sign">Thiên</span>
+        </div>
       </div>
     </div>
 
