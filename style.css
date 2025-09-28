@@ -1,0 +1,275 @@
+:root {
+  --border: #cccccc;
+  --radius: 8px;
+  --font-size: 1rem;
+  --font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  background: #fff;
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: #111;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 425px;
+  margin: 0 auto;
+  padding: 12px 4px 32px 4px;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.logo img {
+  max-width: 50px;
+  border-radius: 7px;
+  background: #fff;
+  border: 1px solid var(--border);
+}
+
+.company-info {
+  flex: 1;
+  text-align: right;
+  font-size: 0.95em;
+  margin-left: 10px;
+  color: #111;
+}
+
+.company-info .info-row {
+  margin-bottom: 2px;
+}
+
+.company-info input {
+  width: 105px;
+  font-size: 0.96em;
+  padding: 1px 3px;
+  border: none;
+  background: transparent;
+  color: #111;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.title h1 {
+  margin: 0 0 6px 0;
+  font-size: 2.1em;
+  letter-spacing: 4px;
+  color: #111;
+}
+
+.customer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 100%;
+}
+
+.customer-info-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.customer-info-row label {
+  min-width: 70px;
+  font-weight: 500;
+  color: #111;
+  text-align: left;
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+.customer-info-row input,
+.customer-info-row textarea {
+  flex: 1;
+  width: 1px;
+  box-sizing: border-box;
+  padding: 7px 8px;
+  font-size: 1em;
+  border: none;
+  background: transparent;
+  color: #111;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  resize: none;
+}
+
+.customer-info-row textarea {
+  min-height: 45px;
+  max-height: 90px;
+}
+
+.product-table-section {
+  margin-top: 10px;
+}
+
+#product-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+#product-table th,
+#product-table td {
+  border: 1px solid var(--border);
+  padding: 4px 2px;
+  text-align: center;
+  color: #111;
+  background: #fff;
+}
+
+#product-table th {
+  font-size: 1em;
+  font-weight: 600;
+}
+
+#product-table input {
+  width: 95%;
+  border: none;
+  background: transparent;
+  font-size: 1em;
+  color: #111;
+  text-align: center;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+}
+
+.input-name {
+  text-align: left;
+  width: 98%;
+}
+
+.input-stt, .input-sl {
+  text-align: center;
+  width: 40px;
+}
+
+.input-gia {
+  text-align: right;
+  width: 95px;
+}
+
+.cost-table-section {
+  margin-top: 12px;
+}
+
+#cost-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-bottom: 8px;
+}
+
+#cost-table td {
+  padding: 6px 2px;
+  border: 1px solid var(--border);
+  color: #111;
+  background: #fff;
+}
+
+#cost-table input[type="number"], #cost-table input[type="text"] {
+  width: 90px;
+  font-size: 1em;
+  text-align: right;
+  border: none;
+  background: transparent;
+  color: #111;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+}
+
+#cost-table input[readonly] {
+  background: #fff;
+  color: #222;
+}
+
+.footer-invoice {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.date-section label, .writer-section label {
+  font-weight: 500;
+  font-size: 1em;
+  margin-right: 4px;
+  color: #111;
+}
+
+.date-section input[type="date"], .writer-section input[type="text"] {
+  font-size: 1em;
+  border: none;
+  background: transparent;
+  color: #111;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  min-width: 105px;
+  padding: 2px 6px;
+}
+
+.bank-info {
+  margin: 8px 0 6px 0;
+  font-size: 0.97em;
+  background: #fff;
+  border-radius: 8px;
+  padding: 7px 10px;
+  border: 1px solid #eee;
+  color: #111;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.action-buttons button {
+  background: #fff;
+  color: #111;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 1.04em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.action-buttons button:hover {
+  background: #222;
+  color: #fff;
+}
+
+@media (max-width: 430px) {
+  .container { padding: 3px 1px 22px 1px; }
+  .customer-info-row label { min-width: 66px; }
+  #cost-table input[type="number"], #cost-table input[type="text"] { width: 65px; }
+  .footer-invoice { flex-direction: column; align-items: flex-start; gap: 4px;}
+}

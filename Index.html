@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>HÓA ĐƠN - Gỗ Một Tấm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" id="invoice-content">
+    <!-- Phần đầu -->
+    <div class="header">
+      <div class="logo">
+        <img src="logo.png" alt="Logo Công ty" />
+      </div>
+      <div class="company-info">
+        <div class="info-row"><span>Cty TNHH Gỗ Một Tấm</span></div>
+        <div class="info-row">
+          Hotline:
+          <input type="text" id="hotline" value="0568.638.638">
+        </div>
+        <div class="info-row">Xưởng: 138/3 APĐ03, P.An Phú Đông, HCM</div>
+        <div class="info-row">Kho: 19 HT43, P. Tân Thới Hiệp, HCM</div>
+      </div>
+    </div>
+
+    <!-- Phần 2 -->
+    <div class="title">
+      <h1>HÓA ĐƠN</h1>
+      <div class="customer-info">
+        <div class="customer-info-row">
+          <label for="customer-name">Tên KH:</label>
+          <input type="text" id="customer-name" placeholder="Nhập tên khách hàng">
+        </div>
+        <div class="customer-info-row">
+          <label for="customer-phone">Số ĐT:</label>
+          <input type="text" id="customer-phone" placeholder="Nhập số điện thoại">
+        </div>
+        <div class="customer-info-row">
+          <label for="customer-address">Địa chỉ:</label>
+          <textarea id="customer-address" rows="2" placeholder="Nhập địa chỉ"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần 3: Bảng sản phẩm -->
+    <div class="product-table-section">
+      <table id="product-table">
+        <thead>
+          <tr>
+            <th style="width: 12%;">STT</th>
+            <th style="width: 48%;">Tên sản phẩm</th>
+            <th style="width: 12%;">SL</th>
+            <th style="width: 28%;">Giá tiền</th>
+          </tr>
+        </thead>
+        <tbody id="product-tbody">
+          <tr>
+            <td><input type="number" min="1" max="999" value="1" class="input-stt"></td>
+            <td><input type="text" class="input-name" placeholder="Tên sản phẩm"></td>
+            <td><input type="number" min="1" max="999" value="1" class="input-sl"></td>
+            <td><input type="number" min="0" max="99999999999" value="0" class="input-gia"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Phần 4: Bảng chi phí -->
+    <div class="cost-table-section">
+      <table id="cost-table">
+        <tbody>
+          <tr>
+            <td>Vận chuyển:</td>
+            <td><input type="number" min="0" value="0" id="shipping-fee"></td>
+          </tr>
+          <tr>
+            <td>Tổng đơn:</td>
+            <td><input type="text" id="total-fee" readonly></td>
+          </tr>
+          <tr>
+            <td>Cọc trước:</td>
+            <td><input type="number" min="0" value="0" id="deposit"></td>
+          </tr>
+          <tr>
+            <td>Giao hàng thanh toán:</td>
+            <td><input type="text" id="final-payment" readonly></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Phần 5: Ngày tháng và người lập hoá đơn -->
+    <div class="footer-invoice">
+      <div class="date-section">
+        <label>Ngày lập hóa đơn:</label>
+        <input type="date" id="invoice-date">
+      </div>
+      <div class="writer-section">
+        <label>Người viết hoá đơn:</label>
+        <input type="text" id="writer-name" value="Thiên">
+      </div>
+    </div>
+
+    <!-- Phần 6: Thông tin chuyển khoản -->
+    <div class="bank-info">
+      <div>
+        <strong>Thông tin chuyển khoản:</strong><br>
+        Tên: Đinh Duy Luân<br>
+        STK: 974666<br>
+        Ngân hàng Á Châu (ACB)
+      </div>
+    </div>
+
+    <!-- Phần 7: Nút điều khiển -->
+    <div class="action-buttons">
+      <button onclick="addProductRow()">Thêm Sản Phẩm</button>
+      <button onclick="removeProductRow()">Xoá Sản Phẩm</button>
+      <button onclick="saveInvoice()">Lưu Hoá Đơn</button>
+      <button onclick="resetInvoice()">Xoá hoá đơn</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
