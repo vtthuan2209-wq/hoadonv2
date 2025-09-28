@@ -286,6 +286,11 @@ body {
   margin: 0 2px;
   box-sizing: border-box;
 }
+.ngay-thang-nam-2line input[type="number"].nam-number {
+  width: 52px;
+  min-width: 48px;
+  max-width: 60px;
+}
 .ngay-thang-nam-2line input[type="number"]:focus,
 .ngay-thang-nam-2line input[type="number"]:focus-visible {
   border: none !important;
