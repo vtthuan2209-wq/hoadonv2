@@ -4,13 +4,19 @@ function formatVND(num) {
   return num.toLocaleString('vi-VN');
 }
 
-// Cập nhật ngày tự động
+// Tự động set ngày, tháng, năm hiện tại khi load, cho phép chỉnh sửa
 window.onload = function() {
-  const today = new Date().toISOString().slice(0, 10);
-  document.getElementById('invoice-date').value = today;
+  const now = new Date();
+  document.getElementById('invoice-day').value = now.getDate();
+  document.getElementById('invoice-month').value = now.getMonth() + 1;
+  document.getElementById('invoice-year').value = now.getFullYear();
   updateTotals();
   setupGiaInputEvents();
   setupMoneyInputEvents();
+  // Cho phép user chỉnh sửa ngày tháng năm
+  document.getElementById('invoice-day').addEventListener('input', updateTotals);
+  document.getElementById('invoice-month').addEventListener('input', updateTotals);
+  document.getElementById('invoice-year').addEventListener('input', updateTotals);
 };
 
 // Thêm sản phẩm
@@ -166,7 +172,13 @@ function resetInvoice() {
   document.getElementById('shipping-fee').value = 0;
   document.getElementById('deposit').value = 0;
   document.getElementById('writer-name').value = 'Thiên';
-  document.getElementById('invoice-date').value = new Date().toISOString().slice(0,10);
+
+  // Reset ngày tháng năm
+  const now = new Date();
+  document.getElementById('invoice-day').value = now.getDate();
+  document.getElementById('invoice-month').value = now.getMonth() + 1;
+  document.getElementById('invoice-year').value = now.getFullYear();
+
   setupMoneyInputEvents();
   updateTotals();
 }
