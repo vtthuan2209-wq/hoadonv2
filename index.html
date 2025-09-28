@@ -59,7 +59,7 @@
             <td><input type="number" min="1" max="999" value="1" class="input-stt"></td>
             <td><input type="text" class="input-name" placeholder="Tên sản phẩm"></td>
             <td><input type="number" min="1" max="999" value="1" class="input-sl"></td>
-            <td><input type="number" min="0" max="99999999999" value="0" class="input-gia"></td>
+            <td><input type="text" inputmode="numeric" pattern="[0-9.]*" maxlength="13" value="0" class="input-gia"></td>
           </tr>
         </tbody>
       </table>
@@ -71,7 +71,7 @@
         <tbody>
           <tr>
             <td>Vận chuyển:</td>
-            <td><input type="number" min="0" value="0" id="shipping-fee"></td>
+            <td><input type="text" maxlength="13" value="0" id="shipping-fee" class="input-money"></td>
           </tr>
           <tr>
             <td>Tổng đơn:</td>
@@ -79,7 +79,7 @@
           </tr>
           <tr>
             <td>Cọc trước:</td>
-            <td><input type="number" min="0" value="0" id="deposit"></td>
+            <td><input type="text" maxlength="13" value="0" id="deposit" class="input-money"></td>
           </tr>
           <tr>
             <td>Giao hàng thanh toán:</td>
