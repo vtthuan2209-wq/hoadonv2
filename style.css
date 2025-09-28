@@ -17,7 +17,7 @@ body {
 .container {
   max-width: 425px;
   margin: 0 auto;
-  padding: 18px 14px 36px 14px;
+  padding: 20px 16px 38px 16px; /* tăng padding trái/phải thêm 2px */
   box-sizing: border-box;
   background: #fff;
 }
@@ -30,8 +30,8 @@ body {
 }
 
 .logo img {
-  max-width: 80px;
-  max-height: 50px;
+  max-width: 110px; /* logo to hơn */
+  max-height: 70px;
   border-radius: 7px;
   background: #fff;
   border: 1px solid var(--border);
@@ -226,6 +226,7 @@ body {
   color: #222;
 }
 
+/* Phần ngày lập hoá đơn bên trái, người viết hoá đơn bên phải */
 .footer-invoice {
   display: flex;
   justify-content: space-between;
@@ -289,7 +290,7 @@ body {
 }
 
 @media (max-width: 430px) {
-  .container { padding: 8px 4vw 19px 4vw;}
+  .container { padding: 12px 8vw 23px 8vw;}
   .customer-info-row label { min-width: 66px; }
   #cost-table input[type="number"], #cost-table input[type="text"] { width: 100%; }
   .footer-invoice { flex-direction: column; align-items: flex-start; gap: 4px;}
