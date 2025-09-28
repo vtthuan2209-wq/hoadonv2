@@ -17,7 +17,7 @@ body {
 .container {
   max-width: 425px;
   margin: 0 auto;
-  padding: 20px 16px 38px 16px; /* tăng padding trái/phải thêm 2px */
+  padding: 20px 16px 38px 16px;
   box-sizing: border-box;
   background: #fff;
 }
@@ -30,7 +30,7 @@ body {
 }
 
 .logo img {
-  max-width: 110px; /* logo to hơn */
+  max-width: 110px;
   max-height: 70px;
   border-radius: 7px;
   background: #fff;
@@ -125,24 +125,39 @@ body {
 
 #product-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   background: #fff;
   border-radius: var(--radius);
   overflow: hidden;
+  table-layout: fixed;
 }
 
 #product-table th,
 #product-table td {
   border: 1px solid var(--border);
   padding: 4px 2px;
-  text-align: center;
   color: #111;
   background: #fff;
+  overflow: hidden;
 }
 
 #product-table th {
   font-size: 1em;
   font-weight: 600;
+  text-align: center;
+}
+
+#product-table th,
+#product-table td {
+  /* Đảm bảo các cột tiền thẳng hàng với bảng dưới bằng cách set width giống nhau */
+}
+#product-table th:last-child,
+#product-table td:last-child {
+  width: 28%;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 #product-table input {
@@ -187,6 +202,11 @@ body {
   border-spacing: 0;
   background: #fff;
   margin-bottom: 8px;
+  table-layout: fixed;
+}
+
+#cost-table tr {
+  width: 100%;
 }
 
 #cost-table td {
@@ -194,14 +214,21 @@ body {
   border: 1px solid var(--border);
   color: #111;
   background: #fff;
-  text-align: right;
   font-variant-numeric: tabular-nums;
   font-family: 'Segoe UI', Arial, sans-serif;
+  overflow: hidden;
 }
 
 #cost-table td:first-child {
+  width: 72%;
   text-align: left;
   font-variant-numeric: normal;
+}
+
+#cost-table td:last-child {
+  width: 28%;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
 }
 
 .input-money,
@@ -226,7 +253,7 @@ body {
   color: #222;
 }
 
-/* Phần ngày lập hoá đơn bên trái, người viết hoá đơn bên phải */
+/* Footer invoice: ngày lập hóa đơn bên trái, người viết hđ bên phải */
 .footer-invoice {
   display: flex;
   justify-content: space-between;
@@ -235,14 +262,36 @@ body {
   margin-bottom: 4px;
 }
 
-.date-section label, .writer-section label {
+.date-section {
+  flex: 1;
+  text-align: left;
+}
+
+.writer-section {
+  flex: 1;
+  text-align: right;
+}
+
+.writer-section label {
   font-weight: 500;
   font-size: 1em;
   margin-right: 4px;
   color: #111;
 }
 
-.date-section input[type="date"], .writer-section input[type="text"] {
+.writer-section input[type="text"] {
+  font-size: 1em;
+  border: none;
+  background: transparent;
+  color: #111;
+  outline: none;
+  box-shadow: none;
+  appearance: none;
+  min-width: 105px;
+  padding: 2px 6px;
+}
+
+.date-section input[type="date"] {
   font-size: 1em;
   border: none;
   background: transparent;
@@ -294,4 +343,5 @@ body {
   .customer-info-row label { min-width: 66px; }
   #cost-table input[type="number"], #cost-table input[type="text"] { width: 100%; }
   .footer-invoice { flex-direction: column; align-items: flex-start; gap: 4px;}
+  .date-section, .writer-section { text-align: left; width: 100%;}
 }
