@@ -1,0 +1,21 @@
+{
+  "name": "Hóa Đơn Gỗ Một Tấm",
+  "short_name": "Hóa Đơn",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#ffecd2",
+  "description": "Tạo hóa đơn Gỗ Một Tấm nhanh chóng, tiện lợi.",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
