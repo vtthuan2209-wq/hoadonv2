@@ -129,8 +129,37 @@ document.getElementById('product-tbody').addEventListener('input', updateTotals)
 document.getElementById('shipping-fee').addEventListener('input', updateTotals);
 document.getElementById('deposit').addEventListener('input', updateTotals);
 
-// Lưu hoá đơn: tải ảnh (dùng html2canvas)
+// Lưu hoá đơn: tải ảnh (dùng html2canvas) và lưu thông tin đơn hàng vào localStorage
 function saveInvoice() {
+  // Lưu thông tin đơn hàng vào localStorage
+  try {
+    const customer = document.getElementById('customer-name').value.trim();
+    const phone = document.getElementById('customer-phone').value.trim();
+    const date = [
+      document.getElementById('invoice-day').value.padStart(2, "0"),
+      document.getElementById('invoice-month').value.padStart(2, "0"),
+      document.getElementById('invoice-year').value
+    ].join('/');
+    const valueStr = document.getElementById('total-fee').value.replace(/[^\d]/g, '');
+    const value = parseInt(valueStr) || 0;
+
+    // Tạo object đơn hàng
+    const order = {
+      customer,
+      phone,
+      date,
+      value
+    };
+
+    // Lưu vào localStorage
+    const orders = JSON.parse(localStorage.getItem('orders') || '[]');
+    orders.push(order);
+    localStorage.setItem('orders', JSON.stringify(orders));
+  } catch(e) {
+    alert('Có lỗi khi lưu đơn hàng vào danh sách!');
+  }
+
+  // Lưu ảnh hóa đơn
   const btns = document.querySelector('.action-buttons');
   btns.style.display = 'none';
   importHtml2Canvas(() => {
